@@ -1,0 +1,15 @@
+.login--wrapper {
+    display: flex;
+    border: 1px solid red;
+    justify-content: flex-end;
+}
+
+.main__login {
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.main__logout {
+    margin: 5px;
+    border: 1px solid black;
+}
