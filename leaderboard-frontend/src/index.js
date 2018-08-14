@@ -1,3 +1,4 @@
+//________MODULES________
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,16 +7,19 @@ import { Provider } from 'react-redux';
 import studentReducer from './Reducers/studentReducer';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { createStore } from 'redux';
+
+//________COMPONENTS________
 import MenuBar from './components/MenuBar';
 import LandingPage from './components/LandingPage';
+import ClassList from './components/ClassList';
 
-
+//________REDUX STORE________
 const store = createStore(
   studentReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-
+//________MAIN VIEW________
 function SplitPane(props) {
     return (
         <div className="SplitPane" style={{ height: '100%'}}>
@@ -56,6 +60,7 @@ function SplitPane(props) {
   
         <div style={{ height: '100%' }}>
             <Route path="/" exact component={withRouter(NoteHome)} />
+            <Route path="/class/" exact component={withRouter(ClassList)} />
             {/* <Route path="/usercreate" exact component={withRouter(CreateUser)} />
             <Route path="/login" exact component={withRouter(Login)} />
             <Route path="/fetch" exact component={withRouter(Fetch)} />
