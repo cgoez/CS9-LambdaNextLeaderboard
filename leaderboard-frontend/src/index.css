@@ -1,10 +1,11 @@
 .SplitPane {
   width: 100%;
   height: 100%;
+
 }
-#root {
+/* #root {
   height: 100%;
-}
+} */
 body {
   margin: 0;
   padding: 0;
@@ -25,25 +26,33 @@ html, body, #root {
 
 .SplitPane-left {
   float: left;
-  width: 25%;
-  height: 100%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 12%;
+  margin-right: 2%;
+  height: 93%;
 }
 
 .SplitPane-right {
   float: left;
-  width: 75%;
-  height: 100%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  width: 86%;
+  height: 93%;
 }
 
 .LeftContent {
+  margin-left: 5%;
   width: 100%;
-  height: 100%; 
-  background: lightgray;
+  /* height: 90%;  */
+  background: lightgray; 
 }
 
 .RightContent {
-  width: 100%;
-  height: 100%; 
+  margin-right: 3%;
+  width: 95%;
+  /* height: 100%;  */
   background: #f2f1f2
+  /* background: red; */
 }
 
