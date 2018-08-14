@@ -24,22 +24,22 @@ class CreateUser extends React.Component {
     }
 
     componentWillUpdate = (nextProps) => {
-        if (this.state.sentConfirm === true) {
+    //     if (this.state.sentConfirm === true) {
             
-            // console.log("Props for check update", this.props.updateCheck, nextProps.updateCheck);
-            // console.log("message and sentconfirm", this.state.message, this.state.sentConfirm);
-        } 
-        if (this.state.sentConfirm === true && nextProps.updateCheck === true) {
-            // console.log("Redirect")
-            this.setState({sentConfirm : false});
-            this.props.history.push('/login')
+    //         // console.log("Props for check update", this.props.updateCheck, nextProps.updateCheck);
+    //         // console.log("message and sentconfirm", this.state.message, this.state.sentConfirm);
+    //     } 
+    //     if (this.state.sentConfirm === true && nextProps.updateCheck === true) {
+    //         // console.log("Redirect")
+    //         this.setState({sentConfirm : false});
+    //         this.props.history.push('/login')
         
-    }
-    if (this.state.sentConfirm === true && this.props.updateCheck === false) { 
-        this.setState({sentFailedMessage: "Update failed because the username has already been taken, please try a different username"})
+    // }
+    // if (this.state.sentConfirm === true && this.props.updateCheck === false) { 
+    //     this.setState({sentFailedMessage: "Update failed because the username has already been taken, please try a different username"})
 
-        this.setState({sentConfirm : false});
-    }
+    //     this.setState({sentConfirm : false});
+    // }
     }
     newCredentials = () => {
         let username = this.state.username;

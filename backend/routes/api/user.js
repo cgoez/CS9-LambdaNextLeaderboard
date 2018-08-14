@@ -17,6 +17,7 @@ router.get("/test", (req, res) => res.json({ msg: "Users route working" }));
 // @desc    Registers new user
 // @access  Public
 router.post("/register", (req, res) => {
+  return console.log("Inside the routes", req)
   const { errors, isValid } = validateRegistration(req.body);
 
   // Validation Check

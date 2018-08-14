@@ -1,4 +1,4 @@
-import { LOGIN_ACTION, CREATE_USER}  from '../actions/actions'
+import { LOGIN_ACTION, CREATE_USER, ERRORS}  from '../actions/actions'
 const initialStater = {
     user: [],
     error: '',
@@ -18,12 +18,18 @@ export const studentReducer = (state = initialStater, action) => {
                 user: { ...state.user, token: action.payload, username: action.username, ID: action.Id },
                 expiration: action.expiration
             }));
+            case ERRORS:
+			return (
+				Object.assign({}, state, {
+					error: action.error
+				})
+			);
         //When we fetch data, we need to set updateCheck to False
         //It should be set on the first get request, after the login.
         default:
             return state;
     }
-}
+};
 
 // export default studentReducer;
 

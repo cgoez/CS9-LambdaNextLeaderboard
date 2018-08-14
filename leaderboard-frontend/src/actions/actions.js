@@ -18,7 +18,7 @@ export const createUserAction = (obj) => {
     console.log("obj", obj)
     return (dispatch) => {
         // /api/users/register
-        axios.post(`${ROOT_URL}register`, obj)
+        axios.post(`${ROOT_URL}api/users/register`, obj)
             .then(resp => {
                 localStorage.setItem('ID', resp.data._id);
                 localStorage.setItem('username', resp.data.username);
@@ -27,7 +27,13 @@ export const createUserAction = (obj) => {
                     username: username,
                     payload: resp
                 });
+                
             })
+            .catch((err) => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('username');
+                dispatch({ type: ERRORS, error: err });
+            });
     }
 };
 
