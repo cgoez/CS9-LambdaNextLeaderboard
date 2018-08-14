@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 // const passport = require("passport");
 
 // import routes
+const users = require("./routes/api/user");
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -23,6 +24,7 @@ mongoose
 // require("./config/passport")(passport);
 
 // Connect routes
+app.use("/api/users", users);
 
 const port = process.env.PORT || 4000;
 
