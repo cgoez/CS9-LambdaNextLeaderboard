@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import studentReducer from './Reducers/studentReducer';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import MenuBar from './components/MenuBar';
 import LandingPage from './components/LandingPage';
 
@@ -69,19 +68,7 @@ function SplitPane(props) {
             <Route exact path="/notes/view/delete/:idE" component={withRouter(Delete)} /> */}
         </div>);
   }
-  const App = props => {
-  
-  
-    // render() {
-      return (
-        <div style={{ height: '100%' }}>
-          <RouTING />
-        </div>
-      );
-    // }
-  
-  
-  }
+ 
 
 
 ReactDOM.render(
