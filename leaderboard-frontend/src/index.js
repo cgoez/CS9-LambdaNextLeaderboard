@@ -4,19 +4,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import studentReducer from './Reducers/studentReducer';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 //________COMPONENTS________
 import MenuBar from './components/MenuBar';
 import LandingPage from './components/LandingPage';
 import ClassList from './components/ClassList';
+import CreateUser from './components/CreateUser'
 
 //________REDUX STORE________
 const store = createStore(
   studentReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(thunk)
 );
 
 //________MAIN VIEW________
@@ -61,6 +64,7 @@ function SplitPane(props) {
         <div style={{ height: '100%' }}>
             <Route path="/" exact component={withRouter(NoteHome)} />
             <Route path="/class/" exact component={withRouter(ClassList)} />
+            <Route path="/register" exact component={withRouter(CreateUser)} />
             {/* <Route path="/usercreate" exact component={withRouter(CreateUser)} />
             <Route path="/login" exact component={withRouter(Login)} />
             <Route path="/fetch" exact component={withRouter(Fetch)} />
