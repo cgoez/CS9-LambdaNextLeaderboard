@@ -31,10 +31,10 @@ export const createUserAction = (obj) => {
 
 export const loginAction = (obj, history) => {
     //Need to KNow the token expiration
-    let today = new Date();
-    let time = today.getDate();
-    let hours = today.getHours();
-    let minutes = today.getMinutes();
+    // let today = new Date();
+    // let time = today.getDate();
+    // let hours = today.getHours();
+    // let minutes = today.getMinutes();
     // let expire
     // if (hours < 12) {
     //     if (hours === 11) {
