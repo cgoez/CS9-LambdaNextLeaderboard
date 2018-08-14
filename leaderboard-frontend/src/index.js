@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import registerServiceWorker from './registerServiceWorker';
-import studentReducer from './Reducers/studentReducer';
+import {studentReducer} from './Reducers/studentReducer';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
