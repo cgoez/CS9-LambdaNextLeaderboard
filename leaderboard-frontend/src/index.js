@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import studentReducer from './Reducers/studentReducer';
@@ -17,42 +17,45 @@ const store = createStore(
 );
 
 
-function LeftContent() {
-    return (
-        <div className="LeftContent">
-            <MenuBar />
-        </div>
-    );
-}
-
-function RightContent(props) {
-
-    return (
-        <div className="RightContent">
-            <LandingPage />
-        </div>
-    );
-}
-
 function SplitPane(props) {
     return (
-        <div className="SplitPane">
+        <div className="SplitPane" style={{ height: '100%', border:"2px solid black" }}>
             <div className="SplitPane-left">{props.left}</div>
             <div className="SplitPane-right">{props.right}</div>
         </div>
     );
-}
-
-const NoteHome = (props) => {
-    return <SplitPane left={<LeftContent />} right={<RightContent />} />;
-};
-
-const RouTING = () => {
+  }
+  function LeftContent(props) {
+    return (
+        <div className="LeftContent" style={{ height: '100%', color:"red" }}>
+            <MenuBar />
+        </div>
+    );
+  }
+  
+  function RightContent(props) {
+  
+    return (
+        <div className="RightContent" style={{ height: '100%' }}>
+            <LandingPage />
+        </div>
+    );
+  }
+  
+  
+  const NoteHome = (props) => {
+    return <div style={{ height: '100%' }}>
+     <SplitPane left={<LeftContent />}  right={<RightContent />} />;
+     </div>
+  };
+  
+  const RouTING = () => {
     // if (this.props.history.push('/'))
     return (
-
-        <div>
-            <Route path="/" exact component={withRouter(NoteHome)} />
+  
+        <div style={{ height: '100%' }}>
+            {/* <h1>Hello</h1> */}
+            <Route path="/" exact component={withRouter(NoteHome )} />
             {/* <Route path="/usercreate" exact component={withRouter(CreateUser)} />
             <Route path="/login" exact component={withRouter(Login)} />
             <Route path="/fetch" exact component={withRouter(Fetch)} />
@@ -65,8 +68,20 @@ const RouTING = () => {
             <Route exact path="/notes/edit/:idE" component={withRouter(Edit)} />
             <Route exact path="/notes/view/delete/:idE" component={withRouter(Delete)} /> */}
         </div>);
-}
-
+  }
+  const App = props => {
+  
+  
+    // render() {
+      return (
+        <div style={{ height: '100%' }}>
+          <RouTING />
+        </div>
+      );
+    // }
+  
+  
+  }
 
 
 ReactDOM.render(

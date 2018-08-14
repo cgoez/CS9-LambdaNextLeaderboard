@@ -1,4 +1,4 @@
-.login--wrapper {
+/* .login--wrapper {
     display: flex;
     border: 1px solid red;
     justify-content: flex-end;
@@ -13,3 +13,6 @@
     margin: 5px;
     border: 1px solid black;
 }
+.main-wrapper {
+    height: 100%;
+} */
