@@ -6,7 +6,7 @@ export const LOGIN_ACTION = 'LOGIN_ACTION';
 export const UPDATE_USER = 'UPDATE_USER';
 export const ERRORS = 'ERRORS';
 
-const ROOT_URL = "Coming SOON";
+const ROOT_URL = "http://localhost:4000/";
 
 export const createUserAction = (obj) => {
     localStorage.removeItem('token');
@@ -15,8 +15,10 @@ export const createUserAction = (obj) => {
     localStorage.removeItem('notes');
 
     let username = obj.username;
+    console.log("obj", obj)
     return (dispatch) => {
-        axios.post(`${ROOT_URL}/api/users/register`, obj)
+        // /api/users/register
+        axios.post(`${ROOT_URL}register`, obj)
             .then(resp => {
                 localStorage.setItem('ID', resp.data._id);
                 localStorage.setItem('username', resp.data.username);
