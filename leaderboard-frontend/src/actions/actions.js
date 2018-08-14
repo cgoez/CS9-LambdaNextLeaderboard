@@ -16,7 +16,7 @@ export const createUserAction = (obj) => {
 
     let username = obj.username;
     return (dispatch) => {
-        axios.post(`${ROOT_URL}register`, obj)
+        axios.post(`${ROOT_URL}/api/users/register`, obj)
             .then(resp => {
                 localStorage.setItem('ID', resp.data._id);
                 localStorage.setItem('username', resp.data.username);
@@ -74,7 +74,7 @@ export const loginAction = (obj, history) => {
     //     }
     // }
     return (dispatch) => {
-        axios.post(`${ROOT_URL}login`, obj)
+        axios.post(`${ROOT_URL}/api/users/login`, obj)
             .then(res => {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('username', res.data.username);
