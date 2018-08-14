@@ -5,6 +5,16 @@ import {Link} from 'react-router-dom';
 //________STYLING________
 import './ClassList.css'
 
+
+//________DUMMY DATA________
+// classes: [
+//     { cName: "CS9", cPop: 52, cPart: 74.05, cHired: 22 },
+//     { cName: "CS10", cPop: 72, cPart: 87.25, cHired: 44 },
+//     { cName: "ML3", cPop: 13, cPart: 51.23, cHired: 7 }
+// ],
+
+// classes: props.classes,
+
 //________CLASSLIST________
 class ClassList extends Component {
     constructor(props) {
@@ -20,22 +30,24 @@ class ClassList extends Component {
             return ( 
                 <div className="APP__CLASSLIST">
                     {/* Map through classes and make a card for each one. */}
-                    {this.props.classes.map((cID, index) => {
+                    {this.state.classes.map((cID, index) => {
                         return(
                             <div key ={`classID${index}`}>
-                                <Link to={`/classID/${index}`}>
-                                    <ClassCard classID={cID} />
-                                </Link>
+                                <ClassCard classID={cID} />
                             </div>
                         );
                     })}
                     {/* Button to add a new class */}
-                    <AddClass className="APP__ADDCLASS__CARD"/>
+                    <div className="APP__ADDCLASS__CARD">
+                        <AddClass />
+                    </div>
                 </div> 
             );
         } else {  // Highlight "Add a new class", if there are no classes
             return(
-                <AddClass className="APP__ADDCLASS__SOLO"/>
+                <div className="APP__ADDCLASS__SOLO">
+                    <AddClass />
+                </div>
             );
         }
     }
@@ -60,9 +72,9 @@ function ClassCard(props) {
 // AddClass card constructor
 function AddClass() {
     return(
-        <div className="APP__ADDCLASS__CARD">
-            <h1>Add a new class</h1>
-            <button>+</button>
+        <div>
+            <p>Add a new class</p>
+            <Link to={`/createclass`} className="APP__ADDCLASS__BUTTONWRAPPER"><button className="APP__ADDCLASS_ADDBUTTON">+</button></Link>
         </div>
     );
 };
