@@ -1,0 +1,6 @@
+.Menu-Bar {
+    border: 1px solid red;
+    align-self: flex-start;
+    height: 100%;
+    /* box-sizing: border-box; */
+}
