@@ -30,6 +30,8 @@ class App extends Component {
     return (
       <Router>
         <div className="APP">
+        
+          <div className="APP__HEADER">
             <div className="APP__USERHEADER">
               SIGN IN / SIGN OUT
               {/* TODO ADD LOGIN LINK COMPONENT*/}
@@ -39,6 +41,9 @@ class App extends Component {
               {/* TODO ADD BREADCRUMB COMPONENT*/}
             </div>
             {/* TODO BREAD CRUMB BAR GOES HERE */}
+          </div>
+
+          <div className="APP__MAIN">
             <div className="APP__MENU">
               <Route path='/' component={MENUBAR} />
             </div>
@@ -51,6 +56,8 @@ class App extends Component {
                 {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
+          </div>
+
         </div>
       </Router>
     );
