@@ -26,7 +26,7 @@ html, body, #root {
 
 .SplitPane-left {
   float: left;
-  /* margin-top: 5%; */
+  margin-top: 5%;
   margin-bottom: 2%;
   width: 12%;
   margin-right: 2%;
@@ -35,7 +35,7 @@ html, body, #root {
 
 .SplitPane-right {
   float: left;
-  /* margin-top: 5%; */
+  margin-top: 5%;
   margin-bottom: 2%;
   width: 86%;
   height: 93%;

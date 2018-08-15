@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { loginAction } from '../actions/actions'
+import { loginAction } from '../actions'
 const mainStyle = {
     textAlign: 'center',
 }
