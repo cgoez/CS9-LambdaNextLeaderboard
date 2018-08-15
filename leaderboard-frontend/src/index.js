@@ -13,7 +13,8 @@ import { createStore, applyMiddleware } from 'redux';
 import MenuBar from './components/MenuBar';
 import LandingPage from './components/LandingPage';
 import ClassList from './components/ClassList';
-import CreateUser from './components/CreateUser'
+import CreateUser from './components/CreateUser';
+import Login from './components/Login'
 
 //________REDUX STORE________
 const store = createStore(
@@ -65,6 +66,7 @@ function SplitPane(props) {
             <Route path="/" exact component={withRouter(NoteHome)} />
             <Route path="/class/" exact component={withRouter(ClassList)} />
             <Route path="/register" exact component={withRouter(CreateUser)} />
+            <Route path="/login" exact component={withRouter(Login)}  />
             {/* <Route path="/usercreate" exact component={withRouter(CreateUser)} />
             <Route path="/login" exact component={withRouter(Login)} />
             <Route path="/fetch" exact component={withRouter(Fetch)} />
