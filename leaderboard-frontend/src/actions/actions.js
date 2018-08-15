@@ -6,7 +6,7 @@ export const LOGIN_ACTION = 'LOGIN_ACTION';
 export const UPDATE_USER = 'UPDATE_USER';
 export const ERRORS = 'ERRORS';
 
-const ROOT_URL = "Coming SOON";
+const ROOT_URL = "http://localhost:4000/api/users/";
 
 export const createUserAction = (obj) => {
     localStorage.removeItem('token');
