@@ -15,6 +15,7 @@ import ClassList from './components/ClassList';
 import CreateUser from './components/CreateUser';
 import Login from './components/Login'
 import HomeTemplate from './subComponents/HomeTemplate'
+import CreateEdit from './subComponents/CreateEditClass';
 
 //________REDUX STORE________
 const store = createStore(
@@ -40,9 +41,9 @@ export function SplitPane(props) {
 
 const RouTING = () => {
     return (
-
         <div style={{ height: '100%' }}>
             <Route path="/" exact component={withRouter(HomeTemplate)} />
+            <Route path="/create-edit" exact component={withRouter(CreateEdit)} />
             <Route path="/class/" exact component={withRouter(ClassList)} />
             <Route path="/register" exact component={withRouter(CreateUser)} />
             <Route path="/login" exact component={withRouter(Login)} />
