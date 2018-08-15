@@ -1,0 +1,22 @@
+body {
+    /* background: red */
+}
+.Settings {
+    background: red;
+    width: 100%;
+    padding: 5%;
+    /* padding-bottom: 5%; */
+}
+.BtnImport {
+    /* padding-right: 0 */
+    margin-left: 30%
+}
+.Add_Students {
+    background: red;
+    padding: 5%
+}
+.BtnAdd {
+    margin-left: 5%;
+    /* background: red */
+}
+

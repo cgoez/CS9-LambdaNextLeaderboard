@@ -4,9 +4,12 @@ import axios from 'axios';
 export const CREATE_USER = 'CREATE_USER';
 export const LOGIN_ACTION = 'LOGIN_ACTION';
 export const UPDATE_USER = 'UPDATE_USER';
+export const ADD_CLASS = 'ADD_CLASS';
+export const ADD_STUDENT = 'ADD_STUDENT'
 export const ERRORS = 'ERRORS';
 
-const ROOT_URL = "http://localhost:4000/api/users/";
+const USER_URL = "http://localhost:4000/api/users/";
+const CLASS_URL = "http://localhost:4000/api/classes/";
 
 export const createUserAction = (obj) => {
     localStorage.removeItem('token');
@@ -15,7 +18,7 @@ export const createUserAction = (obj) => {
 
     let username = obj.username;
     return (dispatch) => {
-        axios.post(`${ROOT_URL}register`, obj)
+        axios.post(`${USER_URL}register`, obj)
             .then(resp => {
                 localStorage.setItem('username', obj.username);
                 dispatch({
@@ -78,7 +81,7 @@ export const loginAction = (obj, history) => {
     //     }
     // }
     return (dispatch) => {
-        axios.post(`${ROOT_URL}login`, obj)
+        axios.post(`${USER_URL}login`, obj)
             .then(res => {
                 console.log('response', res)
                 localStorage.setItem('token', res.data.token);
@@ -100,3 +103,48 @@ export const loginAction = (obj, history) => {
             });
     }
 };
+
+export const addClass = (obj) => {
+    const token = localStorage.getItem('token');
+    return (dispatch) => {
+        const optionTwo = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'Authorization': token },
+            data: obj,
+            url: `${CLASS_URL}addclass`,
+        }
+
+        axios(optionTwo)
+            .then((resp) => {
+                localStorage.setItem('user', resp.data.name)
+                dispatch({
+                    type: ADD_CLASS,
+                    user: resp.data.name,
+                    class_name: resp.student
+                })
+            })
+            .catch(err => dispatch({ type: ERRORS, payload: err }));
+    }
+}
+export const addStudent = (obj) => {
+    const token = localStorage.getItem('token');
+    return (dispatch) => {
+        const optionTwo = {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json', 'Authorization': token },
+            data: obj,
+            url: `${USER_URL}addclass`,
+        }
+
+        axios(optionTwo)
+            .then((resp) => {
+                // localStorage.setItem('user', resp.data.name)
+                dispatch({
+                    type: ADD_STUDENT,
+                    user: resp.data.name,
+                    class_name: resp.student
+                })
+            })
+            .catch(err => dispatch({ type: ERRORS, payload: err }));
+    }
+}

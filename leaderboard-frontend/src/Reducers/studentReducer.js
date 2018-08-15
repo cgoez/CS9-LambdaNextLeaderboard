@@ -1,9 +1,11 @@
-import { LOGIN_ACTION, CREATE_USER, ERRORS}  from '../actions/actions'
+import { LOGIN_ACTION, CREATE_USER, ADD_CLASS, ERRORS}  from '../actions/actions'
 const initialStater = {
-    user: [],
+    students: [],
     error: '',
     expiration: '',
     updateCheck: false,
+    class : []
+
 }
 
 const studentReducer = (state = initialStater, action) => {
@@ -22,6 +24,11 @@ const studentReducer = (state = initialStater, action) => {
             return (Object.assign({}, state, {
                 error: action.payload
             } ))
+        case ADD_CLASS:
+            return (Object.assign({}, state, {
+                students: {...state.user, username: action.user },
+                class: action.class_name
+            }))
         //When we fetch data, we need to set updateCheck to False
         //It should be set on the first get request, after the login.
         default:

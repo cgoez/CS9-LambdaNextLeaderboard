@@ -1,7 +1,8 @@
 //________MODULES________
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-
+import { addClass } from '../actions/actions';
+import { connect } from 'react-redux';
 //________STYLING________
 import './ClassList.css'
 
@@ -20,13 +21,34 @@ class ClassList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // classes: props.classes,
+            class: '',
+            students: [],
+            addingClass: false,
             classes: [
                 { cName: "CS9", cPop: 52, cPart: 74.05, cHired: 22 },
                 { cName: "CS10", cPop: 72, cPart: 87.25, cHired: 44 },
                 { cName: "ML3", cPop: 13, cPart: 51.23, cHired: 7 }
             ]
         };
+    }
+    handleInput = e => {
+        const { name, value } = e.target
+        console.log(name, value)
+        // c
+        this.setState({ class: value })
+        
+    }
+    handleClass = () => {
+        console.log("state", this.state.addingClass)
+        
+        this.setState({addingClass: true})
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("Fired handleSubmit")
+        // this.props.addClass(this.state.class)
+        const data = this.state.class
+        this.props.addClass({name: data})
     }
 
     render() {
@@ -44,14 +66,15 @@ class ClassList extends Component {
                     })}
                     {/* Button to add a new class */}
                     <div className="APP__ADDCLASS__CARD">
-                        <AddClass />
+                        {this.state.addingClass ? <AddNewClass handleSubmit={this.handleSubmit} handleInput={this.handleInput} name={this.state.name} /> : <AddClass handleClass={this.handleClass}  /> }
+                        {/* <AddClass /> */}
                     </div>
                 </div> 
             );
         } else {  // Highlight "Add a new class", if there are no classes
             return(
                 <div className="APP__ADDCLASS__SOLO">
-                    <AddClass />
+                    <AddClass handleClass={this.handleClass} />
                 </div>
             );
         }
@@ -75,14 +98,37 @@ function ClassCard(props) {
 };
 
 // AddClass card constructor
-function AddClass() {
+function AddClass(props) {
     return(
         <div>
             <p>Add a new class</p>
-            <Link to={`/createclass`} className="APP__ADDCLASS__BUTTONWRAPPER"><button className="APP__ADDCLASS_ADDBUTTON">+</button></Link>
+            <div className="APP__ADDCLASS__BUTTONWRAPPER">
+            <button onClick={props.handleClass} className="APP__ADDCLASS_ADDBUTTON">+</button>
+            </div>
+            {/* <Link to={`/createclass`} className="APP__ADDCLASS__BUTTONWRAPPER"><button onClick={props.handleClass} className="APP__ADDCLASS_ADDBUTTON">+</button></Link> */}
         </div>
     );
 };
 
+//Input Fields for class
+const AddNewClass = (props) => {
+    return(
+        <div>
+            <input
+            type="text"
+            value={props.class}
+            placeholder="Enter Class Name"
+            onChange={props.handleInput}
+            />
+            <button onClick={props.handleSubmit} >Save Class</button>
+        </div>
+    )
+}
+const mapStateToProps = state => {
+    return {
+        students: state.students,
+        class: state.class
+    }
+}
 //________EXPORT________
-export default ClassList;
+export default connect(mapStateToProps, {addClass})(ClassList);
