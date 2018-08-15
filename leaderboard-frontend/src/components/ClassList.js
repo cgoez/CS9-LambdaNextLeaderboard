@@ -21,6 +21,7 @@ class ClassList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+<<<<<<< HEAD
             class: '',
             students: [],
             addingClass: false,
@@ -29,6 +30,15 @@ class ClassList extends Component {
                 { cName: "CS10", cPop: 72, cPart: 87.25, cHired: 44 },
                 { cName: "ML3", cPop: 13, cPart: 51.23, cHired: 7 }
             ]
+=======
+            // classes: props.classes,
+
+            classes: [
+            { cName: "CS9", cPop: 52, cPart: 74.05, cHired: 22 },
+            { cName: "CS10", cPop: 72, cPart: 87.25, cHired: 44 },
+            { cName: "ML3", cPop: 13, cPart: 51.23, cHired: 7 }
+        ],
+>>>>>>> ae8c16e5361c040e78585f83bd340ecdabacb4de
         };
     }
     handleInput = e => {

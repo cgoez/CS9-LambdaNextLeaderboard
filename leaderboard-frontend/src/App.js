@@ -63,4 +63,8 @@ const mapStateToProps = state => {
   }
 }
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS })(App);
+=======
+export default connect(mapStateToProps, { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS })(App);
+>>>>>>> ae8c16e5361c040e78585f83bd340ecdabacb4de
