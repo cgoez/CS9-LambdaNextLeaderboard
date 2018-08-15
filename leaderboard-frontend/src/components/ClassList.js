@@ -20,7 +20,13 @@ class ClassList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            classes: props.classes,
+            // classes: props.classes,
+
+            classes: [
+            { cName: "CS9", cPop: 52, cPart: 74.05, cHired: 22 },
+            { cName: "CS10", cPop: 72, cPart: 87.25, cHired: 44 },
+            { cName: "ML3", cPop: 13, cPart: 51.23, cHired: 7 }
+        ],
         };
     }
 

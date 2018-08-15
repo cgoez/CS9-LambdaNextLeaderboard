@@ -1,5 +1,5 @@
 import React from 'react';
-import { createUserAction } from '../actions/actions';
+import { createUserAction } from '../actions';
 import { connect } from 'react-redux';
 const mainStyle = {
     textAlign: 'center',
@@ -19,6 +19,10 @@ class CreateUser extends React.Component {
         }
 
     };
+    componentDidMount = () => {
+
+    }
+
     componentWillUpdate = (nextProps) => {
         if (this.state.sentConfirm === true) {
             
@@ -43,7 +47,7 @@ class CreateUser extends React.Component {
         const newObject = {
             username: username.toLowerCase().toString(),
             password: password,
-            password2: password // The server is setup to get 2 passwords for registry.
+            password: password // The server is setup to get 2 passwords for registry.
             //It should only need one password, it's better to check in the client if they match.
         };
         this.setState({ username: '',usernameconfirm: '' , password: '', passwordconfirm: '' });
@@ -112,6 +116,7 @@ const mapStateToProps = state => {
         user: state.user,
         updateReceived: state.updateReceived,
         updateCheck: state.updateCheck,
+        error: state.error
     }
 }
 
