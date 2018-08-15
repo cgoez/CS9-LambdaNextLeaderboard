@@ -5,8 +5,8 @@ const passport = require("passport");
 
 const User = require("../../models/User");
 const keys = require("../../config/keys");
-const validateRegistration = require("../../validation/registration");
-const validateLogin = require("../../validation/login");
+const validateRegistration = require("../../validation/users/registration");
+const validateLogin = require("../../validation/users/login");
 
 // @route   GET api/users/test
 // @desc    Tests users route

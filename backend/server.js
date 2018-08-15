@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const helmet = require('helmet');
-const cors = require('cors');
+const helmet = require("helmet");
+const cors = require("cors");
+
 // import routes
 const users = require("./routes/api/user");
+const classes = require("./routes/api/class");
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +30,11 @@ require("./authentication/passport")(passport);
 
 // Connect routes
 app.use("/api/users", users);
+app.use(
+  "/api/classes",
+  passport.authenticate("jwt", { session: false }),
+  classes
+);
 
 const port = process.env.PORT || 4000;
 
