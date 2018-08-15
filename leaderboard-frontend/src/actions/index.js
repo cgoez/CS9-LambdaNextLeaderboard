@@ -8,12 +8,8 @@ export const ADD_CLASS = 'ADD_CLASS';
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const ERRORS = 'ERRORS';
 
-<<<<<<< HEAD:leaderboard-frontend/src/actions/index.js
 const USER_URL = "http://localhost:4000/api/users/";
 const CLASS_URL = "http://localhost:4000/api/classes/";
-=======
-const ROOT_URL = "Coming SOON";
->>>>>>> ae8c16e5361c040e78585f83bd340ecdabacb4de:leaderboard-frontend/src/actions/index.js
 
 export const createUserAction = (obj) => {
     localStorage.removeItem('token');
