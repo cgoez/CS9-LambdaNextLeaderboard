@@ -1,4 +1,8 @@
+//________MODULES________
 import React, { Component } from 'react';
+
+//________STYLING________
+import './MenuBar.css';
 
 
 class MenuBar extends Component {
@@ -8,11 +12,12 @@ class MenuBar extends Component {
     }
     render() { 
         return ( 
-        <div className="Menu-Bar">
-            <div>Class</div>
-            <div>Billing</div>
-            <div>Settings</div>
-        </div> );
+            <div className="Menu-Bar">
+                <div>Class</div>
+                <div>Billing</div>
+                <div>Settings</div>
+            </div>
+        );
     }
 }
  
