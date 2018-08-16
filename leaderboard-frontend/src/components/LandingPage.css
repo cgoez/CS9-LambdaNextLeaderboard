@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
-.APP__LANDINGPAGE__IMG {
+.APP__LP__IMG {
     display: inline-block;
+    width: 75%;
 }
