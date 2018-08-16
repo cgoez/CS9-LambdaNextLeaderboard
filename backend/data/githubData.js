@@ -9,10 +9,11 @@ const clientSecret = require("../config/keys").clientSecret;
 
 // Fetch user commits
 async function fetchGithubData(githubHandle, ACCESS_TOKEN) {
-  let authStr = `Bearer ${ACCESS_TOKEN}`; // Add token
+  let authStr = `Bearer 70847787df84134e962d8bf6d468e2f7729956d6`; // Add token
 
   return await axios
-    .get(`https://api.github.com/users/${githubHandle}/events/public`, { // Add user github handle
+    .get(`https://api.github.com/users/cgoez/events/public`, {
+      // Add user github handle
       headers: {
         Authorization: authStr
       }
@@ -25,7 +26,7 @@ async function fetchGithubData(githubHandle, ACCESS_TOKEN) {
         .map(e => e.payload.commits)
         .flatMap()
         .map(commit => commit.message)
-        .value();
+        .size();
     })
     .catch(err => console.log(err));
 }
