@@ -8,22 +8,21 @@ class Breadcrumbs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: props.location.pathname.split(/\/(\w+)/g),
+      location: props.location.pathname.split(/\/(\w+)/g), // grab path from props
     };
   }
   render() {
     return (
       <div className="APP__BREADCRUMBS">
-      {this.state.location.map((loc, index) => {
-        if(loc.length > 0) {
+      {this.state.location.map((loc, index) => {  // Map through location
+        if(loc.length > 0) { // Choose only the words
           return(
             <div className="APP__CRUMB" key={`loc${index}`}>
-              <p>{loc}  =></p>
+              <p>{loc}  =></p>  {/*return each word with an arrow pointing right*/}
             </div>
           )
         }
       })}
-        {this.state.location[0]}
       </div>
     );
   }
