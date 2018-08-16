@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS } from "./actions";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 // TODO import axios from 'axios';
 
 //________REACT COMPONENTS________
@@ -19,12 +19,12 @@ import CreateEdit from "./components/CreateOrEditClass/CreateEditClass";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      classes: []
-      // TODO users: [],
-    };
-    // TODO this.storage = window.localStorage;
+    this.state = {};
   }
+
+  handleLogOut = () => {
+    localStorage.removeItem("token");
+  };
 
   componentWillMount() {
     console.log("Going to mount");
@@ -32,6 +32,10 @@ class App extends Component {
 
   componentWillUpdate() {
     console.log("going to update");
+  }
+
+  componentWillUnmount() {
+    console.log("going to unmount");
   }
 
   render() {
@@ -44,7 +48,21 @@ class App extends Component {
               {/* TODO ADD BREADCRUMB COMPONENT*/}
             </div>
             <div className="APP__USERHEADER">
-              SIGN IN / SIGN OUT
+              {localStorage.getItem("token") ? (
+                <Link onClick={this.handleLogOut} to="/">
+                  Log out
+                </Link>
+              ) : (
+                <Link to="/login">Log in</Link>
+              )}
+              {/* <button className="APP__SIGN-IN-OUT">
+                <Link
+                  onClick={this.handleLogOut}
+                  to={localStorage.getItem("token") ? "/" : "/login"}
+                >
+                  {localStorage.getItem("token") ? "Log out" : "Log In"}
+                </Link>
+              </button> */}
               {/* TODO ADD LOGIN LINK COMPONENT*/}
             </div>
           </div>
@@ -58,10 +76,10 @@ class App extends Component {
             <div className="APP__BODY">
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
-                <Route path="/login" component={LOGIN} />
-                <Route path="/create-edit" component={CreateEdit} />
-                <Route path="/register" component={CREATEUSER} />
-                <Route path="/classlist" component={CLASSLIST} />
+                <Route exact path="/login" component={LOGIN} />
+                <Route exact path="/create-edit" component={CreateEdit} />
+                <Route exact path="/register" component={CREATEUSER} />
+                <Route exact path="/classlist" component={CLASSLIST} />
                 {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
