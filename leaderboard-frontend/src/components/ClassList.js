@@ -1,7 +1,7 @@
 //________MODULES________
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import { addClass } from '../actions/actions';
+import { addClass } from '../actions/';
 import { connect } from 'react-redux';
 //________STYLING________
 import './ClassList.css'

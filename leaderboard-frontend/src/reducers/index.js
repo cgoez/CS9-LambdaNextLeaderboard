@@ -1,4 +1,4 @@
-import { LOGIN_ACTION, CREATE_USER, ADD_CLASS, ERRORS}  from '../actions/actions'
+import { LOGIN_ACTION, CREATE_USER, ADD_CLASS, ERRORS}  from '../actions/'
 const initialStater = {
     students: [],
     error: '',
