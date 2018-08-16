@@ -14,6 +14,7 @@ import LOGIN from "./components/Login";
 
 //________STYLING________
 import "./App.css";
+import CreateEdit from "./components/CreateOrEditClass/CreateEditClass";
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
                 <Route path="/login" component={LOGIN} />
+                <Route path="/create-edit" component={CreateEdit} />
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
                 {/* TODO ADD MORE COMPONENTS*/}
