@@ -7,6 +7,7 @@ const cors = require("cors");
 // import routes
 const users = require("./routes/api/user");
 const classes = require("./routes/api/class");
+const githubData = require("./data/githubData");
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -35,6 +36,7 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   classes
 );
+app.use("/api/data", githubData);
 
 const port = process.env.PORT || 4000;
 
