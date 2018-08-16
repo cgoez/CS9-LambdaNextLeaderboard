@@ -2,16 +2,28 @@
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  padding: 1em;
+  padding: 5%;
   text-align: center;
 }
 
-.login__field {
+.login__form {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .login__input {
   display: flex;
   flex-direction: column;
+  width: 45%;
+  margin: 2% 0;
+}
+
+.login__error {
+  text-align: left;
+  margin-bottom: 1%;
+}
+
+.login__btn {
+  margin-top: 2%;
 }
