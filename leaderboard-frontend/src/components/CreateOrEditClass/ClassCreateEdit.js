@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './index.css'
+import './CreateEditClass.css'
 
 class ClassCreateEdit extends Component {
     constructor(props) {
@@ -24,6 +24,7 @@ class ClassCreateEdit extends Component {
     }
     handleImport = e => {
         e.preventDefault();
+        console.log("Fired")
         //Needs an action to send the data
         
     }

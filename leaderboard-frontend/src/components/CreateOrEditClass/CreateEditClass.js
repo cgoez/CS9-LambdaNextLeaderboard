@@ -3,6 +3,8 @@
 // import { SplitPane } from "../../index";
 import React from 'react';
 import {  Link } from 'react-router-dom';
+// import from './CreateEditClass.css'
+import './CreateEditClass.css';
 
 //Components to be combined together for the specific framework, such as Leaderboard
 import MenuBar from "../MenuBar";
