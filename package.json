@@ -1,0 +1,34 @@
+{
+  "name": "cs9-lambdanextleaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd leaderboard-frontend && npm install && npm react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard/issues"
+  },
+  "homepage": "https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard#readme"
+}

@@ -1,1 +1,1 @@
-PROCFILE=./backend/Procfile
+web: node backend/server.js
