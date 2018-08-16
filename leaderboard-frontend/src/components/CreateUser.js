@@ -47,20 +47,21 @@ class CreateUser extends React.Component {
         const newObject = {
             username: username.toLowerCase().toString(),
             password: password,
-            password: password // The server is setup to get 2 passwords for registry.
+            password2: this.state.passwordconfirm // The server is setup to get 2 passwords for registry.
             //It should only need one password, it's better to check in the client if they match.
         };
+        console.log(newObject)
         this.setState({ username: '',usernameconfirm: '' , password: '', passwordconfirm: '' });
         this.setState({ sentConfirm: true });
         this.props.createUserAction(newObject);
     }
-    checkCredentials = () => {
-        if (this.state.password === this.state.passwordconfirm && this.state.username === this.state.usernameconfirm && this.state.username !== '' && this.state.password !== '') {
-            this.newCredentials();
-        } else {
-            this.setState({ username: '', password: '', passwordconfirm: '', username: '', usernameconfirm: '', message: "Update Failed, due to mismatch password or username, try again" });
-        }
-    }
+    // checkCredentials = () => {
+    //     if (this.state.password === this.state.passwordconfirm && this.state.username === this.state.usernameconfirm && this.state.username !== '' && this.state.password !== '') {
+    //         this.newCredentials();
+    //     } else {
+    //         this.setState({ username: '', password: '', passwordconfirm: '', username: '', usernameconfirm: '', message: "Update Failed, due to mismatch password or username, try again" });
+    //     }
+    // }
     handleInput = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
@@ -70,7 +71,7 @@ class CreateUser extends React.Component {
         return (
             <div style={mainStyle} >
                 <h3>CreateUser Component</h3>
-                {this.state.message === '' ? <div></div> : <h3>{this.state.message}</h3>}
+                {this.state.message === '' ? <div></div> : <h3>{this.props.error}</h3>}
                 {(this.props.updateCheck === false && this.state.sentConfirm === true) ? <div> <h3>Update failed because the username has already been taken, please try a different username</h3> </div>:<div></div>  }
                 <form>
                     <input
@@ -104,7 +105,7 @@ class CreateUser extends React.Component {
                 </form>
                 <div>
 
-                    <button onClick={this.checkCredentials} >Submit </button>
+                    <button onClick={this.newCredentials} >Submit </button>
                 </div>
             </div>
         )

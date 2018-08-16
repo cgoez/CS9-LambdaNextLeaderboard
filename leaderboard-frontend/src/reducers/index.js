@@ -13,8 +13,8 @@ const studentReducer = (state = initialStater, action) => {
     case CREATE_USER:
       return Object.assign({}, state, {
         user: {
-          username: action.payload.data.username,
-          ID: action.payload.data._id
+          username: action.username,
+          ID: action.user_id
         },
         updateCheck: true
       });

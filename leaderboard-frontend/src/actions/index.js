@@ -23,10 +23,16 @@ export const createUserAction = obj => {
       localStorage.setItem("username", resp.data.username);
       dispatch({
         type: CREATE_USER,
-        username: username,
-        payload: resp
+        username: resp.data.username,
+        user_id: resp.data._id
       });
-    });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERRORS,
+        payload: err.response.data
+      })
+    })
   };
 };
 
