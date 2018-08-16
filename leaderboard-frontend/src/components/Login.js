@@ -22,43 +22,60 @@ class Login extends React.Component {
   handleSubmit = () => {
     this.props.loginAction(this.state, this.props.history);
     this.setState({ sent: true });
-    this.setState({ username: "", password: "" });
+    this.setState({ password: "" });
   };
 
   render() {
     return (
       <div className="login__container">
-        <h1>Welcome to the Login Component</h1>
+        <div className="login__message">
+          <h2 className="login__welcome">Welcome!</h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          dapibus aliquet nibh sit amet vulputate. Fusce tortor nisi, dapibus
+          non enim in, consectetur eleifend nisl.
+        </div>
         <div className="login__form">
-          <div className="login__input">
+          {/* USERNAME */}
+          <div className="login__labelcontainer">
+            <label className="login__label">Username</label>
             {this.props.error.username ? (
               <div className="login__error">{this.props.error.username}</div>
             ) : null}
-            <input
-              type="text"
-              placeholder="Enter Username"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleInput}
-            />
           </div>
-          <div className="login__input">
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleInput}
+            className="login__input"
+          />
+
+          {/* PASSWORD */}
+          <div className="login__labelcontainer">
+            <label className="login__label">Password</label>
             {this.props.error.password ? (
               <div className="login__error">{this.props.error.password}</div>
             ) : null}
-            <input
-              type="password"
-              value={this.state.password}
-              name="password"
-              placeholder="Enter password"
-              onChange={this.handleInput}
-            />
           </div>
-        </div>
-        <div className="login__btn">
-          <button onClick={this.handleSubmit} className="login__button">
+          <input
+            type="password"
+            value={this.state.password}
+            name="password"
+            placeholder="Enter password"
+            onChange={this.handleInput}
+            className="login__input"
+          />
+
+          {/* BUTTON */}
+          <button onClick={this.handleSubmit} className="login__btn">
             Login
           </button>
+
+          {/* REGISTER */}
+          <a href="/register" className="login__register">
+            Don't have an account? Register
+          </a>
         </div>
       </div>
     );
