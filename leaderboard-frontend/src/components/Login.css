@@ -41,11 +41,15 @@
   height: 35px;
   border-radius: 5px;
   border: 1px solid gray;
+  min-width: 200px;
 }
 
 .login__btn {
   background-color: rgb(77, 176, 83);
   height: 35px;
+  width: 50%;
+  min-width: 200px;
+  margin: 0 auto;
 }
 
 .login__register {
