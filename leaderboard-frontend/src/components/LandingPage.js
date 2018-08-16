@@ -10,12 +10,10 @@ class LandingPage extends Component {
     }
     render() { 
         return ( 
-        <div className="main-wrapper">
-            <div className="login--wrapper">
-                <img src={lpimg} className="APP__LPIMG" alt="logo" />
-            </div>
-            <p>The customers for this product are teachers who wish to provide automated knowledge reminders for their students.  Students are registered by teachers and do not need or use accounts of their own</p>
-        </div> 
+            <div className="APP__LP__WRAPPER">
+                <img src={lpimg} className="APP__LP__IMG" alt="logo" />
+                <p>The customers for this product are teachers who wish to provide automated knowledge reminders for their students.  Students are registered by teachers and do not need or use accounts of their own</p>
+            </div> 
         );
     }
 }
