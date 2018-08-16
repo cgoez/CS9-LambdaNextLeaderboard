@@ -18,21 +18,23 @@ export const createUserAction = obj => {
 
   let username = obj.username;
   return dispatch => {
-    axios.post(`${USER_URL}register`, obj).then(resp => {
-      localStorage.setItem("ID", resp.data._id);
-      localStorage.setItem("username", resp.data.username);
-      dispatch({
-        type: CREATE_USER,
-        username: resp.data.username,
-        user_id: resp.data._id
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: ERRORS,
-        payload: err.response.data
+    axios
+      .post(`${USER_URL}register`, obj)
+      .then(resp => {
+        localStorage.setItem("ID", resp.data._id);
+        localStorage.setItem("username", resp.data.username);
+        dispatch({
+          type: CREATE_USER,
+          username: resp.data.username,
+          user_id: resp.data._id
+        });
       })
-    })
+      .catch(err => {
+        dispatch({
+          type: ERRORS,
+          payload: err.response.data
+        });
+      });
   };
 };
 

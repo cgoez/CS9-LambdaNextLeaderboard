@@ -26,70 +26,13 @@ class Login extends React.Component {
   };
 
   render() {
-    //   if (this.state.sent === false) {
-    //     return (
-    //       <div>
-    //         <h1>Welcome to the Login Component</h1>
-    //         <input
-    //           type="text"
-    //           placeholder="Enter Username"
-    //           name="username"
-    //           value={this.state.username}
-    //           onChange={this.handleInput}
-    //         />
-    //         <input
-    //           type="password"
-    //           value={this.state.password}
-    //           name="password"
-    //           placeholder="Enter password"
-    //           onChange={this.handleInput}
-    //         />
-    //         <div>
-    //           <button onClick={this.handleSubmit}>Login </button>
-    //         </div>
-    //       </div>
-    //     );
-    //   }
-
-    //   if (
-    //     (this.state.sent === true && this.props.user.length === 0) ||
-    //     (this.state.sent === true && this.props.user.length !== 0)
-    //   ) {
-    //     return (
-    //       <div>
-    //         <h1>Welcome to the Login Component</h1>
-    //         {this.props.user.length === 0 ? (
-    //           <h3>Credentials are invalid</h3>
-    //         ) : (
-    //           <h1>Valid Credentials</h1>
-    //         )}
-    //         <input
-    //           type="text"
-    //           placeholder="Enter Username"
-    //           name="username"
-    //           value={this.state.username}
-    //           onChange={this.handleInput}
-    //         />
-    //         <input
-    //           type="password"
-    //           value={this.state.password}
-    //           name="password"
-    //           placeholder="Enter password"
-    //           onChange={this.handleInput}
-    //         />
-    //         <div>
-    //           <button onClick={this.handleSubmit}>Login</button>
-    //         </div>
-    //       </div>
-    //     );
-    //   }
     return (
       <div className="login__container">
         <h1>Welcome to the Login Component</h1>
-        <div className="login__fields">
+        <div className="login__form">
           <div className="login__input">
             {this.props.error.username ? (
-              <div>{this.props.error.username}</div>
+              <div className="login__error">{this.props.error.username}</div>
             ) : null}
             <input
               type="text"
@@ -101,7 +44,7 @@ class Login extends React.Component {
           </div>
           <div className="login__input">
             {this.props.error.password ? (
-              <div>{this.props.error.password}</div>
+              <div className="login__error">{this.props.error.password}</div>
             ) : null}
             <input
               type="password"
@@ -112,7 +55,7 @@ class Login extends React.Component {
             />
           </div>
         </div>
-        <div>
+        <div className="login__btn">
           <button onClick={this.handleSubmit} className="login__button">
             Login
           </button>
