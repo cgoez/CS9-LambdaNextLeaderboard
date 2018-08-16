@@ -1,29 +1,59 @@
 .login__container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  padding: 5% 0;
   border: 1px solid black;
-  padding: 5%;
-  text-align: center;
-}
-
-.login__form {
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 }
 
-.login__input {
+.login__welcome {
+  margin: 0;
+}
+
+.login__message {
+  width: 45%;
+}
+
+.login__form {
+  width: 45%;
   display: flex;
   flex-direction: column;
-  width: 45%;
-  margin: 2% 0;
+  justify-content: flex-start;
+}
+
+.login__labelcontainer {
+  display: flex;
+}
+
+.login__label {
+  margin-right: 15px;
+  font-weight: bold;
 }
 
 .login__error {
-  text-align: left;
-  margin-bottom: 1%;
+  color: red;
+}
+
+.login__input {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  min-width: 200px;
 }
 
 .login__btn {
-  margin-top: 2%;
+  background-color: rgb(77, 176, 83);
+  height: 35px;
+  width: 50%;
+  min-width: 200px;
+  margin: 0 auto;
+}
+
+.login__register {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
 }
