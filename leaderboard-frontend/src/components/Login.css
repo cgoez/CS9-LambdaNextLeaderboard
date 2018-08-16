@@ -1,0 +1,17 @@
+.login__container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1em;
+  text-align: center;
+}
+
+.login__field {
+  display: flex;
+  flex-direction: row;
+}
+
+.login__input {
+  display: flex;
+  flex-direction: column;
+}

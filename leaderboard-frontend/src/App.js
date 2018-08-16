@@ -1,63 +1,69 @@
 //________MODULES________
-import { connect } from 'react-redux';
-import { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS } from './actions';
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { connect } from "react-redux";
+import { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS } from "./actions";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // TODO import axios from 'axios';
 
-
 //________REACT COMPONENTS________
-import MENUBAR from './components/MenuBar';
-import CLASSLIST from './components/ClassList';
-import LANDINGPAGE from './components/LandingPage';
-import CREATEUSER from './components/CreateUser';
-import LOGIN from './components/Login';
+import MENUBAR from "./components/MenuBar";
+import CLASSLIST from "./components/ClassList";
+import LANDINGPAGE from "./components/LandingPage";
+import CREATEUSER from "./components/CreateUser";
+import LOGIN from "./components/Login";
 
 //________STYLING________
-import './App.css';
+import "./App.css";
 
 class App extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      classes: [],
+      classes: []
       // TODO users: [],
-    }
+    };
     // TODO this.storage = window.localStorage;
+  }
+
+  componentWillMount() {
+    console.log("Going to mount");
+  }
+
+  componentWillUpdate() {
+    console.log("going to update");
   }
 
   render() {
     return (
       <Router>
         <div className="APP">
-        
           <div className="APP__HEADER">
-            <div className="APP__USERHEADER">
-              SIGN IN / SIGN OUT
-              {/* TODO ADD LOGIN LINK COMPONENT*/}
-            </div>
             <div className="APP__BREADCRUMBS">
               BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
               {/* TODO ADD BREADCRUMB COMPONENT*/}
             </div>
-            {/* TODO BREAD CRUMB BAR GOES HERE */}
-          </div>
-
-          <div className="APP__MAIN">
-            <div className="APP__MENU">
-              <Route path='/' component={MENUBAR} />
+            <div className="APP__USERHEADER">
+              SIGN IN / SIGN OUT
+              {/* TODO ADD LOGIN LINK COMPONENT*/}
             </div>
+          </div>
+          {/* TODO BREAD CRUMB BAR GOES HERE */}
+          <div className="APP__CONTENT">
+            {localStorage.getItem("token") ? (
+              <div className="APP__MENU">
+                <MENUBAR />
+              </div>
+            ) : null}
             <div className="APP__BODY">
               <Switch>
-                <Route exact path='/' component={LANDINGPAGE} />
-                <Route path='/classlist' component={CLASSLIST} />
-                <Route path='/login' component={LOGIN} />
-                <Route path='/createuser' component={CREATEUSER} />'
+                <Route exact path="/" component={LANDINGPAGE} />
+                <Route path="/login" component={LOGIN} />
+                <Route path="/register" component={CREATEUSER} />
+                <Route path="/classlist" component={CLASSLIST} />
                 {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
           </div>
-
         </div>
       </Router>
     );
@@ -66,8 +72,11 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    classes: state.classes,
-  }
-}
+    classes: state.classes
+  };
+};
 
-export default connect(mapStateToProps, { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS })(App);
+export default connect(
+  mapStateToProps,
+  { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS }
+)(App);
