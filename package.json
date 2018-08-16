@@ -1,0 +1,19 @@
+{
+  "name": "cs9-lambdanextleaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard/issues"
+  },
+  "homepage": "https://github.com/Lambda-School-Labs/CS9-LambdaNextLeaderboard#readme"
+}
