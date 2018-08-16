@@ -68,7 +68,14 @@ class Login extends React.Component {
           />
 
           {/* BUTTON */}
-          <button onClick={this.handleSubmit}>Login</button>
+          <button onClick={this.handleSubmit} className="login__btn">
+            Login
+          </button>
+
+          {/* REGISTER */}
+          <a href="/register" className="login__register">
+            Don't have an account? Register
+          </a>
         </div>
       </div>
     );

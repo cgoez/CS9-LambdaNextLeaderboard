@@ -1,6 +1,6 @@
 .login__container {
   width: 100%;
-  padding: 5%;
+  padding: 5% 0;
   border: 1px solid black;
   display: flex;
   justify-content: space-evenly;
@@ -35,5 +35,21 @@
 }
 
 .login__input {
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.login__btn {
+  background-color: rgb(77, 176, 83);
+  height: 35px;
+}
+
+.login__register {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
 }
