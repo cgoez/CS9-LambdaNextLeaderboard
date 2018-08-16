@@ -5,13 +5,27 @@ const passport = require("passport");
 
 const User = require("../../models/User");
 const keys = require("../../config/keys");
-const validateRegistration = require("../../validation/registration");
-const validateLogin = require("../../validation/login");
+const validateRegistration = require("../../validation/users/registration");
+const validateLogin = require("../../validation/users/login");
+const validateUpdate = require("../../validation/users/update");
 
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "Users route working" }));
+
+// @route   GET /all
+// @desc    Returns all users
+// @access  Public
+router.get("/all", (req, res) => {
+  User.find({}).then(users => {
+    if (!users.length) {
+      return res.status(404).json({ msg: "There are currently no users." });
+    }
+
+    res.json(users);
+  });
+});
 
 // @route   POST api/users/register
 // @desc    Registers new user
@@ -73,7 +87,11 @@ router.post("/login", (req, res) => {
       bcrypt.compare(password, user.password).then(isMatch => {
         if (isMatch) {
           // Successful login creating token
-          const payload = { id: user._id, name: user.name };
+          const payload = {
+            id: user._id,
+            name: user.name,
+            password: user.password
+          };
           jwt.sign(
             payload,
             keys.jwtSecret,
@@ -97,10 +115,45 @@ router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    res.json({
-      id: req.user.id,
-      username: req.user.username
-    });
+    res.json(req.user);
+  }
+);
+
+// @route   PUT api/users/update
+// @desc    Updates user's password
+// @access  Private
+router.put(
+  "/update",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateUpdate(req.body);
+
+    // Validation Check
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    User.findById(req.user._id)
+      .select("+password")
+      .then(user => {
+        bcrypt
+          .compare(req.body.currentPassword, user.password)
+          .then(isMatch => {
+            if (!isMatch) {
+              errors.password = "Incorrect password";
+              return res.status(400).json(errors);
+            }
+          });
+
+        bcrypt.genSalt(11, (err, salt) => {
+          bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
+            if (err) throw err;
+            User.findByIdAndUpdate(req.user._id, { password: hash })
+              .then(updated => res.json(updated))
+              .catch(err => console.log(err));
+          });
+        });
+      });
   }
 );
 
