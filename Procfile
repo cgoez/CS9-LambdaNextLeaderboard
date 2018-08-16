@@ -1,1 +1,1 @@
-PROCFILE=leaderboard-frontend/Procfile
+PROCFILE=./backend/Procfile

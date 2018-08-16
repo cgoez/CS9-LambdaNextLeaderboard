@@ -11,18 +11,10 @@ const USER_URL = "http://localhost:4000/api/users/";
 const CLASS_URL = "http://localhost:4000/api/classes/";
 
 export const createUserAction = obj => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("username");
-  localStorage.removeItem("token");
-  localStorage.removeItem("notes");
-
-  let username = obj.username;
   return dispatch => {
     axios
       .post(`${USER_URL}register`, obj)
       .then(resp => {
-        localStorage.setItem("ID", resp.data._id);
-        localStorage.setItem("username", resp.data.username);
         dispatch({
           type: CREATE_USER,
           username: resp.data.username,

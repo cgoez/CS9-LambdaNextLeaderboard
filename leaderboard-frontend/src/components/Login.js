@@ -37,7 +37,7 @@ class Login extends React.Component {
         <div className="login__form">
           {/* USERNAME */}
           <div className="login__labelcontainer">
-            <label className="login__label">Username</label>
+            {/* <label className="login__label">Username</label> */}
             {this.props.error.username ? (
               <div className="login__error">{this.props.error.username}</div>
             ) : null}
@@ -53,7 +53,7 @@ class Login extends React.Component {
 
           {/* PASSWORD */}
           <div className="login__labelcontainer">
-            <label className="login__label">Password</label>
+            {/* <label className="login__label">Password</label> */}
             {this.props.error.password ? (
               <div className="login__error">{this.props.error.password}</div>
             ) : null}
