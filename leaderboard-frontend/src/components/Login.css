@@ -26,12 +26,13 @@
 }
 
 .login__label {
-  margin-right: 15px;
+  margin-right: 25px;
   font-weight: bold;
 }
 
 .login__error {
-  color: red;
+  color: rgb(214, 64, 72);
+  font-weight: bold;
 }
 
 .login__input {
@@ -42,6 +43,7 @@
   border-radius: 5px;
   border: 1px solid gray;
   min-width: 200px;
+  font-weight: bold;
 }
 
 .login__btn {
