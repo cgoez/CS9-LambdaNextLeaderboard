@@ -11,6 +11,7 @@ import CLASSLIST from "./components/ClassList";
 import LANDINGPAGE from "./components/LandingPage";
 import CREATEUSER from "./components/CreateUser";
 import LOGIN from "./components/Login";
+import BREADCRUMBS from "./components/Breadcrumbs";
 
 //________STYLING________
 import "./App.css";
@@ -40,15 +41,13 @@ class App extends Component {
         <div className="APP">
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
-              BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
-              {/* TODO ADD BREADCRUMB COMPONENT*/}
+              <Route path="/" component={BREADCRUMBS} />
             </div>
             <div className="APP__USERHEADER">
               SIGN IN / SIGN OUT
               {/* TODO ADD LOGIN LINK COMPONENT*/}
             </div>
           </div>
-          {/* TODO BREAD CRUMB BAR GOES HERE */}
           <div className="APP__CONTENT">
             {localStorage.getItem("token") ? (
               <div className="APP__MENU">
