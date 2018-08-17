@@ -26,18 +26,6 @@ class App extends Component {
     localStorage.removeItem("token");
   };
 
-  componentWillMount() {
-    console.log("Going to mount");
-  }
-
-  componentWillUpdate() {
-    console.log("going to update");
-  }
-
-  componentWillUnmount() {
-    console.log("going to unmount");
-  }
-
   render() {
     return (
       <Router>
@@ -45,7 +33,6 @@ class App extends Component {
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
               BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
-              {/* TODO ADD BREADCRUMB COMPONENT*/}
             </div>
             <div className="APP__USERHEADER">
               {localStorage.getItem("token") ? (
@@ -55,18 +42,8 @@ class App extends Component {
               ) : (
                 <Link to="/login">Log in</Link>
               )}
-              {/* <button className="APP__SIGN-IN-OUT">
-                <Link
-                  onClick={this.handleLogOut}
-                  to={localStorage.getItem("token") ? "/" : "/login"}
-                >
-                  {localStorage.getItem("token") ? "Log out" : "Log In"}
-                </Link>
-              </button> */}
-              {/* TODO ADD LOGIN LINK COMPONENT*/}
             </div>
           </div>
-          {/* TODO BREAD CRUMB BAR GOES HERE */}
           <div className="APP__CONTENT">
             {localStorage.getItem("token") ? (
               <div className="APP__MENU">
@@ -80,7 +57,6 @@ class App extends Component {
                 <Route exact path="/create-edit" component={CreateEdit} />
                 <Route exact path="/register" component={CREATEUSER} />
                 <Route exact path="/classlist" component={CLASSLIST} />
-                {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
           </div>
