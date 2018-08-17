@@ -12,6 +12,7 @@ import LANDINGPAGE from "./components/LandingPage";
 import CREATEUSER from "./components/CreateUser";
 import LOGIN from "./components/Login";
 import BREADCRUMBS from "./components/Breadcrumbs";
+import BILLING from "./components/Billing";
 
 //________STYLING________
 import "./App.css";
@@ -61,6 +62,7 @@ class App extends Component {
                 <Route path="/create-edit" component={CreateEdit} />
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
+                <Route path="/billing" component={BILLING} />
                 {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
