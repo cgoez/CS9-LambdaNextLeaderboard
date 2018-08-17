@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { CREATE_USER, LOGIN_ACTION, UPDATE_USER, ERRORS } from "./actions";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 // TODO import axios from 'axios';
 
 //________REACT COMPONENTS________
@@ -21,20 +21,12 @@ import CreateEdit from "./components/CreateOrEditClass/CreateEditClass";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      classes: []
-      // TODO users: [],
-    };
-    // TODO this.storage = window.localStorage;
+    this.state = {};
   }
 
-  componentWillMount() {
-    console.log("Going to mount");
-  }
-
-  componentWillUpdate() {
-    console.log("going to update");
-  }
+  handleLogOut = () => {
+    localStorage.removeItem("token");
+  };
 
   render() {
     return (
@@ -42,11 +34,20 @@ class App extends Component {
         <div className="APP">
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
+<<<<<<< HEAD
               <Route path="/" component={BREADCRUMBS} />
+=======
+              BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
+>>>>>>> 7d82baeec8fa75abaaa40537ece3a0916f6f9576
             </div>
             <div className="APP__USERHEADER">
-              SIGN IN / SIGN OUT
-              {/* TODO ADD LOGIN LINK COMPONENT*/}
+              {localStorage.getItem("token") ? (
+                <Link onClick={this.handleLogOut} to="/">
+                  Log out
+                </Link>
+              ) : (
+                <Link to="/login">Log in</Link>
+              )}
             </div>
           </div>
           <div className="APP__CONTENT">
@@ -58,12 +59,19 @@ class App extends Component {
             <div className="APP__BODY">
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
+<<<<<<< HEAD
                 <Route path="/login" component={LOGIN} />
                 <Route path="/create-edit" component={CreateEdit} />
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
                 <Route path="/billing" component={BILLING} />
                 {/* TODO ADD MORE COMPONENTS*/}
+=======
+                <Route exact path="/login" component={LOGIN} />
+                <Route exact path="/create-edit" component={CreateEdit} />
+                <Route exact path="/register" component={CREATEUSER} />
+                <Route exact path="/classlist" component={CLASSLIST} />
+>>>>>>> 7d82baeec8fa75abaaa40537ece3a0916f6f9576
               </Switch>
             </div>
           </div>
