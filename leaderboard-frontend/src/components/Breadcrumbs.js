@@ -18,7 +18,7 @@ class Breadcrumbs extends Component {
         if(loc.length > 0) { // Choose only the words
           return(
             <div className="APP__CRUMB" key={`loc${index}`}>
-              <p>{loc}  =></p>  {/*return each word with an arrow pointing right*/}
+              <p>&#9755; {loc}</p>  {/*return each word with an arrow pointing right*/}
             </div>
           )
         }

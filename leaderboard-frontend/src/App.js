@@ -11,6 +11,8 @@ import CLASSLIST from "./components/ClassList";
 import LANDINGPAGE from "./components/LandingPage";
 import CREATEUSER from "./components/CreateUser";
 import LOGIN from "./components/Login";
+import BREADCRUMBS from "./components/Breadcrumbs";
+import BILLING from "./components/Billing";
 
 //________STYLING________
 import "./App.css";
@@ -36,7 +38,7 @@ class App extends Component {
           <Route exact path="/create-edit" component={CreateEdit} />
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
-              BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
+              <Route path="/" component={BREADCRUMBS} />
             </div>
             <div className="APP__USERHEADER">
               {localStorage.getItem("token") ? (
@@ -58,6 +60,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
                 <Route path="/login" component={LOGIN} />
+
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
                 {/* TODO ADD MORE COMPONENTS*/}
@@ -65,6 +68,7 @@ class App extends Component {
                 <Route exact path="/create-edit" component={CreateEdit} />
                 <Route exact path="/register" component={CREATEUSER} />
                 <Route exact path="/classlist" component={CLASSLIST} />
+
               </Switch>
             </div>
           </div>
