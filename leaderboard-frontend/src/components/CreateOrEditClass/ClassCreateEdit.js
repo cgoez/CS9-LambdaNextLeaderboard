@@ -101,7 +101,9 @@ class ClassCreateEdit extends Component {
                         onChange={this.handleInput}
                     />
                 </div>
-                <StudentList/>
+                {/*<div style={{display : "block"}} >*/}
+
+                {/*</div>*/}
             </div>
         )
     }

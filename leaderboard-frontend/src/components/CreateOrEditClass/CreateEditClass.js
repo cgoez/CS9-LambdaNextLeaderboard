@@ -10,6 +10,7 @@ import './CreateEditClass.css';
 import MenuBar from "../MenuBar";
 // import LandingPage from "../LandingPage";
 import ClassCreateEdit from "./ClassCreateEdit";
+import StudentList from "./StudentList";
 
 
 function SplitPane(props) {
@@ -36,6 +37,11 @@ function RightContent() {
     return (
         <div className="RightContent" style={{ height: '100%' }}>
             < ClassCreateEdit />
+            <div className="ClassList" >
+                <StudentList/>
+
+            </div>
+
         </div>
     );
 }
