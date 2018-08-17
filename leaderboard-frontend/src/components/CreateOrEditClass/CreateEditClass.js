@@ -59,22 +59,22 @@ const CreateEdit = (props) => {
     }
     return (
         <div style={{ height: '100%' }}>
-            {/*<div style={{ height: '3em' }} >*/}
-                {/*<div style={linkBox} >*/}
-                        {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/class">*/}
+            <div style={{ height: '3em' }} >
+                <div style={linkBox} >
+                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/class">
 
-                            {/*Classes*/}
-                        {/*</Link>*/}
-                        {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/">*/}
-                            {/*Home*/}
-                        {/*</Link>*/}
-                        {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/signout">*/}
-                            {/*Sign Out*/}
-                        {/*</Link>*/}
-                {/*</div>*/}
-            {/*</div>*/}
-            <ClassCreateEdit/>
-            {/*<SplitPane left={<LeftContent />} right={<RightContent />} />*/}
+                            Classes
+                        </Link>
+                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/">
+                            Home
+                        </Link>
+                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/signout">
+                            Sign Out
+                        </Link>
+                </div>
+            </div>
+            {/*<ClassCreateEdit/>*/}
+            <SplitPane left={<LeftContent />} right={<RightContent />} />
         </div>
     )
 }
