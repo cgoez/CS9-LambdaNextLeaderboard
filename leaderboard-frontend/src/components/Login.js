@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 import { loginAction } from "../actions";
 
 //________STYLING________
@@ -34,6 +35,14 @@ class Login extends React.Component {
           dapibus aliquet nibh sit amet vulputate. Fusce tortor nisi, dapibus
           non enim in, consectetur eleifend nisl.
         </div>
+        <Link to="/create-edit">
+          Create or Edit
+        </Link>
+        <Link to="/register">
+          Register
+        </Link>
+        {/*<Link to*/}
+
         <div className="login__form">
           {/* USERNAME */}
           <div className="login__labelcontainer">

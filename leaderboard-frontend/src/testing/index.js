@@ -1,13 +1,10 @@
-//These imports are mandatory for all components created under ./subComponents
-//If these aren't imported, than it'll break, as you're usin React, and SplitPane
-// import { SplitPane } from "../../index";
 import React from 'react';
 import {  Link } from 'react-router-dom';
 // import from './CreateEditClass.css'
 import './CreateEditClass.css';
 
 //Components to be combined together for the specific framework, such as Leaderboard
-import MenuBar from "../MenuBar";
+import MenuBar from "../components/MenuBar";
 // import LandingPage from "../LandingPage";
 import ClassCreateEdit from "./ClassCreateEdit";
 
@@ -52,33 +49,29 @@ const CreateEdit = (props) => {
         borderRight: ' 2px solid black',
         borderBottom: ' 2px solid black',
         borderLeft: ' 2px solid black',
-        width: '18%',
+        width: '12%',
         height: '100%',
         marginLeft: '80%',
         marginRight: '20%'
     }
     return (
         <div style={{ height: '100%' }}>
-            <div style={{ height: '3em' }} >
-                <div style={linkBox} >
-                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/login">
+            {/*<div style={{ height: '3em' }} >*/}
+            {/*<div style={linkBox} >*/}
+            {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/class">*/}
 
-                            Login
-                        </Link>
-                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/register">
-                            Sign Up
-                        </Link>
-                        <Link style={{marginRight: '8%', textDecoration: 'none' }} to="/signout">
-                            Sign Out
-                        </Link>
-                </div>
-                <Link to="/create-edit">
-                    Create/Edit
-                </Link>
-
-            </div>
-            {/*<ClassCreateEdit/>*/}
-            <SplitPane left={<LeftContent />} right={<RightContent />} />
+            {/*Classes*/}
+            {/*</Link>*/}
+            {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/">*/}
+            {/*Home*/}
+            {/*</Link>*/}
+            {/*<Link style={{marginRight: '8%', textDecoration: 'none' }} to="/signout">*/}
+            {/*Sign Out*/}
+            {/*</Link>*/}
+            {/*</div>*/}
+            {/*</div>*/}
+            <ClassCreateEdit/>
+            {/*<SplitPane left={<LeftContent />} right={<RightContent />} />*/}
         </div>
     )
 }

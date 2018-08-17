@@ -37,36 +37,41 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="APP">
-          <div className="APP__HEADER">
-            <div className="APP__BREADCRUMBS">
-              BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
-              {/* TODO ADD BREADCRUMB COMPONENT*/}
-            </div>
-            <div className="APP__USERHEADER">
-              SIGN IN / SIGN OUT
-              {/* TODO ADD LOGIN LINK COMPONENT*/}
-            </div>
-          </div>
-          {/* TODO BREAD CRUMB BAR GOES HERE */}
-          <div className="APP__CONTENT">
-            {localStorage.getItem("token") ? (
-              <div className="APP__MENU">
-                <MENUBAR />
-              </div>
-            ) : null}
-            <div className="APP__BODY">
-              <Switch>
-                <Route exact path="/" component={LANDINGPAGE} />
-                <Route path="/login" component={LOGIN} />
-                <Route path="/create-edit" component={CreateEdit} />
-                <Route path="/register" component={CREATEUSER} />
-                <Route path="/classlist" component={CLASSLIST} />
-                {/* TODO ADD MORE COMPONENTS*/}
-              </Switch>
-            </div>
-          </div>
+        <div style={{height: "100%"}} >
+          <Route exact path="/create-edit" component={CreateEdit} />
+          <Route exact path="/register" component={CREATEUSER} />
+          <Route exact path="/login" component={LOGIN} />
         </div>
+        {/*<div className="APP">*/}
+          {/*<div className="APP__HEADER">*/}
+            {/*<div className="APP__BREADCRUMBS">*/}
+              {/*BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS*/}
+              {/*/!* TODO ADD BREADCRUMB COMPONENT*!/*/}
+            {/*</div>*/}
+            {/*<div className="APP__USERHEADER">*/}
+              {/*SIGN IN / SIGN OUT*/}
+              {/*/!* TODO ADD LOGIN LINK COMPONENT*!/*/}
+            {/*</div>*/}
+          {/*</div>*/}
+          {/*/!* TODO BREAD CRUMB BAR GOES HERE *!/*/}
+          {/*<div className="APP__CONTENT">*/}
+            {/*{localStorage.getItem("token") ? (*/}
+              {/*<div className="APP__MENU">*/}
+                {/*<MENUBAR />*/}
+              {/*</div>*/}
+            {/*) : null}*/}
+            {/*<div className="APP__BODY">*/}
+              {/*<Switch>*/}
+                {/*<Route exact path="/" component={LANDINGPAGE} />*/}
+                {/*<Route path="/login" component={LOGIN} />*/}
+                {/*<Route exact path="/create-edit" component={CreateEdit} />*/}
+                {/*<Route path="/register" component={CREATEUSER} />*/}
+                {/*<Route path="/classlist" component={CLASSLIST} />*/}
+                {/*/!* TODO ADD MORE COMPONENTS*!/*/}
+              {/*</Switch>*/}
+            {/*</div>*/}
+          {/*</div>*/}
+        {/*</div>*/}
       </Router>
     );
   }
