@@ -54,10 +54,10 @@ class App extends Component {
             <div className="APP__BODY">
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
-                <Route exact path="/login" component={LOGIN} />
-                <Route exact path="/create-edit" component={CreateEdit} />
-                <Route exact path="/register" component={CREATEUSER} />
-                <Route exact path="/classlist" component={CLASSLIST} />
+                <Route path="/login" component={LOGIN} />
+                <Route path="/create-edit" component={CreateEdit} />
+                <Route path="/register" component={CREATEUSER} />
+                <Route path="/classlist" component={CLASSLIST} />
               </Switch>
             </div>
           </div>
