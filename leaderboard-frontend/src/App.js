@@ -11,6 +11,8 @@ import CLASSLIST from "./components/ClassList";
 import LANDINGPAGE from "./components/LandingPage";
 import CREATEUSER from "./components/CreateUser";
 import LOGIN from "./components/Login";
+import BREADCRUMBS from "./components/Breadcrumbs";
+import BILLING from "./components/Billing";
 
 //________STYLING________
 import "./App.css";
@@ -30,10 +32,14 @@ class App extends Component {
   render() {
     return (
       <Router>
+
         <div className="APP">
+            {console.log("props", this)}
+
+          <Route exact path="/create-edit" component={CreateEdit} />
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
-              BREAD CRUMBS -> BREAD CRUMBS -> BREAD CRUMBS
+              <Route path="/" component={BREADCRUMBS} />
             </div>
             <div className="APP__USERHEADER">
               {localStorage.getItem("token") ? (
@@ -51,7 +57,7 @@ class App extends Component {
                 <MENUBAR />
               </div>
             ) : null}
-            <div className="APP__BODY">
+            <div className="APP__BODY" style={{height: '100%'}} >
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
                 <Route path="/login" component={LOGIN} />
