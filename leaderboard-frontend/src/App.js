@@ -26,6 +26,7 @@ class App extends Component {
 
   handleLogOut = () => {
     localStorage.removeItem("token");
+    window.location.reload();
   };
 
   render() {
@@ -60,15 +61,9 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
                 <Route path="/login" component={LOGIN} />
-
+                <Route path="/create-edit" component={CreateEdit} />
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
-                {/* TODO ADD MORE COMPONENTS*/}
-                <Route exact path="/login" component={LOGIN} />
-                <Route exact path="/create-edit" component={CreateEdit} />
-                <Route exact path="/register" component={CREATEUSER} />
-                <Route exact path="/classlist" component={CLASSLIST} />
-
               </Switch>
             </div>
           </div>
