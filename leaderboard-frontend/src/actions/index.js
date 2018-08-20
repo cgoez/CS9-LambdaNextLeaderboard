@@ -10,7 +10,7 @@ export const ERRORS = "ERRORS";
 // const USER_URL = "http://localhost:4000/api/users/";
 // const CLASS_URL = "http://localhost:4000/api/classes/";
 
-const USER_URL = "https://pure-stream-57847.herokuapp.com//api/users/";
+const USER_URL = "https://pure-stream-57847.herokuapp.com/api/users/";
 const CLASS_URL = "https://pure-stream-57847.herokuapp.com/api/classes/";
 
 export const createUserAction = obj => {
