@@ -44,6 +44,6 @@ app.use(
 );
 app.use("/api/data", githubData);
 
-app.set('port', (process.env.PORT || 4000));
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`\nServer is running on port ${port}`));
