@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const helmet = require("helmet");
 const cors = require("cors");
-const path = require('path')
+const path = require('path');
+
+require("dotenv").config();
 
 // import routes
 const users = require("./routes/api/user");
@@ -20,7 +22,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../leaderboard-frontend/build')));
 
 // Connect MongoDB
-const db = require("./config/keys").mongoURI;
+const db = `require("./config/keys").${process.env.mongoURI}`;
 mongoose
   .connect(
     db,

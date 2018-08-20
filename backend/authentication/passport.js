@@ -4,9 +4,11 @@ const mongoose = require("mongoose");
 const User = mongoose.model("users");
 const keys = require("../config/keys");
 
+require("dotenv").config();
+
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = keys.jwtSecret;
+opts.secretOrKey = `${process.env.jwtSecret}`;
 
 module.exports = passport => {
   passport.use(
