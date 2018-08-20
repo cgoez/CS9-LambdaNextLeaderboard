@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../leaderboard-frontend/build')));
 
 // Connect MongoDB
-const db = `${process.env.mongoURI}`;
+const db = `${process.env.MONGODB_URI}`;
 mongoose
   .connect(
     db,
