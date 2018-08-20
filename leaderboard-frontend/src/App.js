@@ -26,12 +26,17 @@ class App extends Component {
 
   handleLogOut = () => {
     localStorage.removeItem("token");
+    window.location.reload();
   };
 
   render() {
     return (
       <Router>
+
         <div className="APP">
+            {console.log("props", this)}
+
+          <Route exact path="/create-edit" component={CreateEdit} />
           <div className="APP__HEADER">
             <div className="APP__BREADCRUMBS">
               <Route path="/" component={BREADCRUMBS} />
@@ -52,15 +57,13 @@ class App extends Component {
                 <MENUBAR />
               </div>
             ) : null}
-            <div className="APP__BODY">
+            <div className="APP__BODY" style={{height: '100%'}} >
               <Switch>
                 <Route exact path="/" component={LANDINGPAGE} />
                 <Route path="/login" component={LOGIN} />
                 <Route path="/create-edit" component={CreateEdit} />
                 <Route path="/register" component={CREATEUSER} />
                 <Route path="/classlist" component={CLASSLIST} />
-                <Route path="/billing" component={BILLING} />
-                {/* TODO ADD MORE COMPONENTS*/}
               </Switch>
             </div>
           </div>
